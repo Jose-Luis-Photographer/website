@@ -77,7 +77,7 @@ const Review: React.FC<ReviewProps> = ({
       <Wrapper className="d-flex flex-column h-100">
         <RichText render={title} />
         <RichText render={shortText} />
-        <div className="text-right mt-auto pt-5">
+        <div className="text-md-right mt-auto pt-5">
           <Button
             onClick={() => {
               setShow(true)

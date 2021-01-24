@@ -52,6 +52,7 @@ const GlobalStyle = createGlobalStyle`${css`
     }
   }
   button {
+    coursor: pointer;
     &:focus {
       outline: none;
     }

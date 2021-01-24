@@ -173,7 +173,10 @@ const Project: React.FC<Props> = ({ data }) => {
         <CoverInner>
           <Container className="pb-5">
             <Row className="align-items-end">
-              <Col md={3}>
+              <Col
+                md={3}
+                className="order-1 order-md-0 text-center text-md-left"
+              >
                 <GalleryBtn
                   onClick={() => {
                     setOpenGallery(true)
@@ -182,7 +185,7 @@ const Project: React.FC<Props> = ({ data }) => {
                   MÁS
                 </GalleryBtn>
               </Col>
-              <Col md={6}>
+              <Col md={6} classNmae="order-0 order-md-1">
                 <h1 className="text-white text-center">{title}</h1>
               </Col>
             </Row>
@@ -208,7 +211,7 @@ const Project: React.FC<Props> = ({ data }) => {
             return (
               <Container key={slice.id} className="mb-5">
                 <Row>
-                  <Col md={6}>
+                  <Col md={6} className="mb-4 mb-md-0">
                     {slicePrimary.imagen_izquierda?.fluid && (
                       <Img
                         fluid={slicePrimary.imagen_izquierda.fluid}
@@ -274,7 +277,7 @@ const Project: React.FC<Props> = ({ data }) => {
           <Container>
             <Row>
               {suggestedProjects.map(project => (
-                <Col key={project.slug} md={4}>
+                <Col key={project.slug} md={4} className="mb-4 mb-md-0">
                   <Link to={`/portafolio/${project.slug}`}>
                     <SuggestedItemImg>
                       {project.imageFluid && (

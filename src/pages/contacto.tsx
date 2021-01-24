@@ -25,9 +25,8 @@ const Wrapper = styled.div`
 `
 
 const PortfolioBanner = styled(Link)`
-  width: 15%;
-  position: absolute;
-  height: 100%;
+  height: 400px;
+  width: 100%;
   top: 0;
   bottom: 0;
   right: 0;
@@ -36,19 +35,29 @@ const PortfolioBanner = styled(Link)`
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
+  @media (min-width: 768px) {
+    position: absolute;
+    height: 100%;
+    width: 15%;
+  }
   h3 {
     color: #fff;
     font-size: 50px;
     z-index: 2;
     position: relative;
-    opacity: 0;
     transition-delay: 0.3s;
     transition: all 0.3s ease-in-out;
+    @media (min-width: 768px) {
+      opacity: 0;
+    }
   }
   &:hover {
-    width: 60%;
-    h3 {
-      opacity: 1;
+    @media (min-width: 768px) {
+      width: 60%;
+      h3 {
+        opacity: 1;
+      }
     }
   }
 `

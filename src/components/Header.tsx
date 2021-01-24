@@ -22,14 +22,15 @@ interface Props {
 
 const StyledHeader = styled.header`
   background-color: #fff;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   padding: 35px 15px;
 `
 
 const Logo = styled(LogoImg)`
   max-width: 180px;
+  min-width: 150px;
 `
 
 const MenuBtn = styled.button`
@@ -72,6 +73,7 @@ const FixedMenu = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
   z-index: 9999;
   transform: translateX(-100%);
   transition: all 0.3s ease-in-out;
@@ -101,6 +103,33 @@ const CloseBtn = styled.button`
   border: none;
   svg {
     width: 30px;
+  }
+`
+
+const Hamburger = styled.button`
+  width: 30px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  position: relative;
+  margin-left: auto;
+  span {
+    width: 100%;
+    height: 1px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:nth-child(2) {
+      bottom: 0;
+      margin: auto;
+    }
+    &:last-of-type {
+      bottom: 0;
+      top: auto;
+    }
   }
 `
 
@@ -165,14 +194,27 @@ const Header: React.FC<Props> = ({
   return (
     <>
       <StyledHeader>
-        <Link to="/">
-          <Logo />
-        </Link>
+        <Container className="d-flex justify-content-md-center align-items-center">
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Hamburger
+            className="d-md-none"
+            onClick={() => {
+              setOpened(true)
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </Hamburger>
+        </Container>
       </StyledHeader>
       <MenuBtn
         onClick={() => {
           setOpened(true)
         }}
+        className="d-none d-md-block"
       >
         <span ref={menuTextRef} className={`d-block ${color}`}>
           <MenuSvg />
@@ -190,10 +232,12 @@ const Header: React.FC<Props> = ({
         >
           <CloseSvg />
         </CloseBtn>
-        <Logo className="my-auto" />
+        <div className="my-auto">
+          <Logo />
+        </div>
         <Container className="my-auto py-4">
           <Row>
-            <Col md={4}>
+            <Col md={4} className="mb-5 mb-md-0">
               <Link to="/portafolio">
                 <h2 className="h2">Portafolio</h2>
                 <MenuImg>
@@ -214,9 +258,9 @@ const Header: React.FC<Props> = ({
                 </MenuImg>
               </Link>
             </Col>
-            <Col md={4}>
-              <Link to="/acerca">
-                <MenuImg>
+            <Col md={4} className="mb-5 mb-md-0">
+              <Link to="/acerca" className="d-flex flex-column">
+                <MenuImg className="order-1 order-md-0">
                   {prismicMenu?.data?.acerca?.fluid && (
                     <Img
                       fluid={prismicMenu.data.acerca.fluid}
@@ -232,7 +276,7 @@ const Header: React.FC<Props> = ({
                     />
                   )}
                 </MenuImg>
-                <h2 className="h2">About</h2>
+                <h2 className="h2 order-0 order-md-1">About</h2>
               </Link>
             </Col>
             <Col md={4}>

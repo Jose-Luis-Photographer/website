@@ -116,7 +116,7 @@ const Acerca: React.FC<Props> = ({ data }) => {
       <Decoration />
       <Container>
         <Row className="align-items-end pb-5">
-          <Col md={6}>
+          <Col md={6} className="mb-4 mb-md-0">
             <h2 className="h1 mb-4">{encabezado}</h2>
             <RichText
               render={data.allPrismicAcerca.nodes[0].data?.contenido?.raw}

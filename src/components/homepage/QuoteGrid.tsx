@@ -23,7 +23,7 @@ const QuoteGrid: React.FC<Props> = ({ quotes }) => {
         <Container>
           <Row>
             {quotes.map(quote => (
-              <Col key={quote.id} md={4}>
+              <Col key={quote.id} md={4} className="mb-5 pb-3 pb-md-0 mb-md-0">
                 <Review
                   title={quote.title}
                   shortText={quote.shortText}
