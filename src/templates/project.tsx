@@ -82,15 +82,20 @@ const SuggestedItemImg = styled.div`
     display: block;
     padding-top: 115%;
   }
+  & > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+  }
   h2 {
     color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    margin: auto;
     font-size: 1.5rem;
+    margin-top: auto;
   }
 `
 
@@ -341,7 +346,9 @@ const Project: React.FC<Props> = ({ data }) => {
                           }}
                         />
                       )}
-                      <h2>{project.title}</h2>
+                      <div>
+                        <h2>{project.title}</h2>
+                      </div>
                     </SuggestedItemImg>
                   </Link>
                 </Col>
