@@ -1,0 +1,61 @@
+{
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Title"
+        }
+      },
+      "whatsapp": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Whatsapp"
+        }
+      },
+      "correo": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Correo"
+        }
+      },
+      "facebook": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Facebook"
+        }
+      },
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Instagram"
+        }
+      },
+      "behance": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Behance"
+        }
+      },
+      "mywed": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "MyWed"
+        }
+      },
+      "imagen": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Imagen"
+        }
+      }
+    }
+  }

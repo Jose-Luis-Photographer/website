@@ -1,0 +1,161 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug"
+      }
+    },
+    "cover_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Cover image"
+      }
+    },
+    "lugar": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Lugar"
+      }
+    },
+    "fecha": {
+      "type": "Date",
+      "config": {
+        "label": "Fecha"
+      }
+    },
+    "galeria": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "imagen": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Imagen"
+            }
+          }
+        },
+        "label": "Galería"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "titulo": [],
+          "imagenes_paralelas": [],
+          "imagen_full": [],
+          "frase_destacada": []
+        },
+        "choices": {
+          "titulo": {
+            "type": "Slice",
+            "fieldset": "Título",
+            "description": "Título",
+            "icon": "title",
+            "display": "list",
+            "non-repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "imagenes_paralelas": {
+            "type": "Slice",
+            "fieldset": "Imágenes paralelas",
+            "description": "Dos imágenes una al lado de otra",
+            "icon": "image",
+            "display": "grid",
+            "non-repeat": {
+              "imagen_izquierda": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Imagen izquierda"
+                }
+              },
+              "imagen_derecha": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Imagen derecha"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "imagen_full": {
+            "type": "Slice",
+            "fieldset": "Imagen full",
+            "description": "Imagen que abarca el 100% de la pantalla",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "imagen": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Imagen"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "frase_destacada": {
+            "type": "Slice",
+            "fieldset": "Frase destacada",
+            "description": "Frase destacada con imagen",
+            "icon": "format_quote",
+            "display": "grid",
+            "non-repeat": {
+              "imagen": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Imagen"
+                }
+              },
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Heading"
+                }
+              },
+              "frase_destacada": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Frase destacada"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

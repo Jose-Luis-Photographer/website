@@ -1,0 +1,48 @@
+{
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Title"
+        }
+      },
+      "encabezado": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading2",
+          "label": "Encabezado"
+        }
+      },
+      "contenido": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Contenido"
+        }
+      },
+      "imagen": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Imagen"
+        }
+      },
+      "encabezado_resenas": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "heading2",
+          "label": "Encabezado reseñas"
+        }
+      },
+      "imagen_resenas": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Imagen reseñas"
+        }
+      }
+    }
+}
