@@ -19,6 +19,8 @@ import {
   PrismicPortafolioConnection,
 } from "../../graphql-types"
 import Deco from "../images/portafolio.inline.svg"
+import ChevronRight from "../images/chevron-right.inline.svg"
+import ChevronLeft from "../images/chevron-left.inline.svg"
 
 interface Props {
   data: {
@@ -112,6 +114,38 @@ const GalleryBtn = styled.button`
   }
 `
 
+const PrevArrow = styled(ChevronLeft)`
+  width: 25px;
+  height: auto;
+`
+
+const PrevArrowWrapper = styled.button`
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  left: 15px;
+  margin: auto;
+`
+
+const NextArrow = styled(ChevronRight)`
+  width: 25px;
+  height: auto;
+`
+
+const NextArrowWrapper = styled.button`
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 15px;
+  z-index: 2;
+  margin: auto;
+`
+
 const Project: React.FC<Props> = ({ data }) => {
   const [sections, setSections] = useState<Section[]>([])
   const [openGallery, setOpenGallery] = useState(false)
@@ -132,6 +166,19 @@ const Project: React.FC<Props> = ({ data }) => {
     imageAlt: node.data?.cover_image?.alt,
     title: node.data?.title?.text,
   }))
+
+  const sliderSettings = {
+    prevArrow: (
+      <PrevArrowWrapper>
+        <PrevArrow />
+      </PrevArrowWrapper>
+    ),
+    nextArrow: (
+      <NextArrowWrapper>
+        <NextArrow />
+      </NextArrowWrapper>
+    ),
+  }
 
   useEffect(() => {
     const coverSectionTop = coverSection?.current?.offsetTop || 0
@@ -312,7 +359,7 @@ const Project: React.FC<Props> = ({ data }) => {
         centered
       >
         <Modal.Body>
-          <Slider>
+          <Slider {...sliderSettings}>
             {gallery?.map(slide => {
               if (slide?.imagen?.fluid) {
                 return (
