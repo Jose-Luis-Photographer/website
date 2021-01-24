@@ -77,6 +77,7 @@ const PortafolioDeco = styled(Deco)`
 const SuggestedItemImg = styled.div`
   position: relative;
   background: lightgray;
+  overflow: hidden;
   &:after {
     content: "";
     display: block;
@@ -91,11 +92,17 @@ const SuggestedItemImg = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 2.5rem;
+    transition: all 1s ease-in-out;
   }
   h2 {
     color: #fff;
     font-size: 1.5rem;
     margin-top: auto;
+  }
+  &:hover {
+    & > div {
+      transform: scale(1.1);
+    }
   }
 `
 
@@ -261,7 +268,7 @@ const Project: React.FC<Props> = ({ data }) => {
             )
           case "imagenes_paralelas":
             return (
-              <Container key={slice.id} className="mb-5">
+              <Container key={slice.id} className="mb-5 px-4" fluid>
                 <Row>
                   <Col md={6} className="mb-4 mb-md-0">
                     {slicePrimary.imagen_izquierda?.fluid && (

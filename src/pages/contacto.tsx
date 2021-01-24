@@ -22,6 +22,12 @@ const Decoration = styled(Deco)`
 const Wrapper = styled.div`
   font-family: "hv_museregular";
   position: relative;
+  a {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 `
 
 const PortfolioBanner = styled(Link)`
@@ -53,6 +59,7 @@ const PortfolioBanner = styled(Link)`
     }
   }
   &:hover {
+    opacity: 1 !important;
     @media (min-width: 768px) {
       width: 60%;
       h3 {

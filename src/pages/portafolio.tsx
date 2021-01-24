@@ -69,6 +69,7 @@ export const query = graphql`
           title {
             text
           }
+          featured
         }
         uid
       }
@@ -86,13 +87,20 @@ export const query = graphql`
 `
 
 const Portafolio: React.FC<Props> = ({ data }) => {
-  const items = data.allPrismicPortafolio.nodes.map(node => ({
-    id: node.uid,
-    place: node.data?.lugar?.text || "",
-    imgFluid: node.data?.cover_image?.fluid,
-    imgAlt: node.data?.cover_image?.alt || "",
-    title: node.data?.title?.text || "",
-  }))
+  const items = data.allPrismicPortafolio.nodes
+    .sort(a => {
+      if (a.data?.featured) {
+        return -1
+      }
+      return 1
+    })
+    .map(node => ({
+      id: node.uid,
+      place: node.data?.lugar?.text || "",
+      imgFluid: node.data?.cover_image?.fluid,
+      imgAlt: node.data?.cover_image?.alt || "",
+      title: node.data?.title?.text || "",
+    }))
   const [portfolioItems, setPortfolioItems] = useState(items.slice(0, 8))
   const hasItemsLeft = useMemo(() => items.length > portfolioItems.length, [
     items,

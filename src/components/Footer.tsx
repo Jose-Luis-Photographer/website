@@ -9,7 +9,9 @@ import Instagram from "../images/instagram.inline.svg"
 import { Query } from "../../graphql-types"
 
 const Line = styled.hr`
-  border: solid 1px #000;
+  border: none;
+  height: 1px;
+  background: #000;
 `
 
 const Wrapper = styled.div`
@@ -27,6 +29,10 @@ const Wrapper = styled.div`
     text-decoration: none;
     font-size: 24px;
     line-height: 29px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 
@@ -36,6 +42,10 @@ const Social = styled.div`
   margin-top: 30px;
   a {
     margin: 0 3px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.4;
+    }
   }
   svg {
     height: 20px;

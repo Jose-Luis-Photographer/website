@@ -88,10 +88,20 @@ const FixedMenu = styled.div`
 
 const MenuImg = styled.div`
   position: relative;
+  overflow: hidden;
   &:after {
     content: "";
     display: block;
     padding-top: 100%;
+  }
+  & > div {
+    transition: transform 1s linear;
+    transform: scale(1);
+  }
+  &:hover {
+    & > div {
+      transform: scale(1.1);
+    }
   }
 `
 

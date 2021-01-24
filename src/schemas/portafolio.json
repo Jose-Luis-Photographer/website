@@ -50,6 +50,13 @@
         "label": "Galería"
       }
     },
+    "featured": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Featured"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",

@@ -34,6 +34,11 @@ const MoreButton = styled(Link)`
     background-color: #000;
     bottom: 0;
     left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover:after {
+    transform: scaleX(0.5);
+    transform-origin: center;
   }
 `
 
@@ -55,6 +60,7 @@ const PortfolioGrid = React.forwardRef<any, any>((_props, ref) => {
             title {
               text
             }
+            featured
           }
           uid
         }
@@ -67,19 +73,26 @@ const PortfolioGrid = React.forwardRef<any, any>((_props, ref) => {
       <Letters />
       <Container>
         <Row>
-          {allPrismicPortafolio.nodes.map(node => (
-            <Col key={node.uid} md={6} className="mb-5">
-              <PortfolioItem
-                portfolio={{
-                  slug: node.uid || "",
-                  place: node.data?.lugar?.text || "",
-                  imgFluid: node.data?.cover_image?.fluid,
-                  imgAlt: node.data?.cover_image?.alt || "",
-                  title: node.data?.title?.text || "",
-                }}
-              />
-            </Col>
-          ))}
+          {allPrismicPortafolio.nodes
+            .sort(a => {
+              if (a.data?.featured) {
+                return -1
+              }
+              return 1
+            })
+            .map(node => (
+              <Col key={node.uid} md={6} className="mb-5">
+                <PortfolioItem
+                  portfolio={{
+                    slug: node.uid || "",
+                    place: node.data?.lugar?.text || "",
+                    imgFluid: node.data?.cover_image?.fluid,
+                    imgAlt: node.data?.cover_image?.alt || "",
+                    title: node.data?.title?.text || "",
+                  }}
+                />
+              </Col>
+            ))}
         </Row>
         <ButtonWrapper>
           <MoreButton to="/portafolio">MÁS BODAS</MoreButton>

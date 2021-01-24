@@ -17,8 +17,8 @@ export interface ReviewProps {
 
 const Wrapper = styled.div`
   h2 {
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 40px;
+    line-height: 50px;
     &:last-of-type {
       margin-bottom: 24px;
     }
@@ -35,9 +35,24 @@ const Wrapper = styled.div`
 const Button = styled.button`
   background: transparent;
   border: none;
-  border-bottom: solid 2px #000;
   font-family: "hv_museregular";
-  font-size: 1.8rem;
+  font-size: 24px;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover:after {
+    transform: scaleX(0.5);
+    transform-origin: center;
+  }
 `
 
 const ModalContent = styled.div`
