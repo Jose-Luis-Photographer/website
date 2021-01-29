@@ -121,7 +121,7 @@ const Review: React.FC<ReviewProps> = ({
           </CloseBtn>
           <Container className="py-5">
             <Row>
-              <Col md={6}>
+              <Col md={6} className="mb-4 mb-md-0">
                 {image && <Img fluid={image} alt={imageAlt || ""} />}
               </Col>
               <Col md={6}>

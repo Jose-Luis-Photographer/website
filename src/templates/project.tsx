@@ -29,6 +29,12 @@ interface Props {
   }
 }
 
+const ProjectTitle = styled.h1`
+  @media (max-width: 767px) {
+    font-size: 25px !important;
+  }
+`
+
 const Cover = styled.div`
   position: relative;
   &:after {
@@ -111,9 +117,12 @@ const GalleryBtn = styled.button`
   color: #fff;
   border: none;
   font-family: "hv_museregular";
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   position: relative;
   padding-bottom: 5px;
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
   &:after {
     content: "";
     display: block;
@@ -244,8 +253,10 @@ const Project: React.FC<Props> = ({ data }) => {
                   MÁS
                 </GalleryBtn>
               </Col>
-              <Col md={6} classNmae="order-0 order-md-1">
-                <h1 className="text-white text-center">{title}</h1>
+              <Col md={6} className="order-0 order-md-1">
+                <ProjectTitle className="text-white text-center mb-4 mb-md-0">
+                  {title}
+                </ProjectTitle>
               </Col>
             </Row>
           </Container>

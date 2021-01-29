@@ -11,8 +11,12 @@ const Wrapper = styled.div`
   padding-top: 80px;
   padding-bottom: 40px;
   text-align: center;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 18px;
+  line-height: 22px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 `
 
 const Quote = React.forwardRef<any, Props>(({ quote }, ref) => {

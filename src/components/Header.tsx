@@ -22,15 +22,14 @@ interface Props {
 
 const StyledHeader = styled.header`
   background-color: #fff;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   padding: 35px 15px;
 `
 
 const Logo = styled(LogoImg)`
-  max-width: 180px;
-  min-width: 150px;
+  width: 120px;
+  @media (min-width: 768px) {
+    width: 180px;
+  }
 `
 
 const MenuBtn = styled.button`
@@ -107,24 +106,32 @@ const MenuImg = styled.div`
 
 const CloseBtn = styled.button`
   position: absolute;
-  top: 40px;
-  right: 50px;
+  top: 0;
+  right: 15px;
   background: transparent;
   border: none;
+  @media (min-width: 768px) {
+    top: 40px;
+    right: 50px;
+  }
   svg {
     width: 30px;
   }
 `
 
 const Hamburger = styled.button`
-  width: 30px;
-  height: 20px;
+  width: 25px;
+  height: 15px;
   margin: 0;
   padding: 0;
   background: transparent;
   border: none;
   position: relative;
   margin-left: auto;
+  @media (min-width: 768px) {
+    width: 30px;
+    height: 20px;
+  }
   span {
     width: 100%;
     height: 1px;

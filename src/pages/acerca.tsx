@@ -85,6 +85,7 @@ const Content = styled.div`
 
 const Decoration = styled(Deco)`
   width: 55%;
+  height: auto;
   display: block;
   margin-left: auto;
   margin-right: 0;
@@ -138,7 +139,7 @@ const Acerca: React.FC<Props> = ({ data }) => {
     <Layout>
       <Header initialMenuColor="dark" />
       <Decoration />
-      <Container>
+      <Container className="mt-5 mt-md-0">
         <Row className="align-items-end pb-5">
           <Col md={6} className="mb-4 mb-md-0">
             <h2 className="h1 mb-4">{encabezado}</h2>

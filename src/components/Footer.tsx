@@ -27,9 +27,12 @@ const Wrapper = styled.div`
   a {
     color: inherit;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 29px;
     transition: all 0.3s ease-in-out;
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
     &:hover {
       opacity: 0.5;
     }
@@ -82,7 +85,7 @@ const Footer: React.FC = () => {
   const igUrl = contact?.instagram?.url || ""
 
   return (
-    <Container className="mt-5 pt-5">
+    <Container className="mt-md-5 pt-5">
       <Line />
       <Wrapper>
         <Icon />

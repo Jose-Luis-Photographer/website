@@ -9,7 +9,11 @@ import { Query } from "../../../graphql-types"
 
 const Letters = styled(Decoration)`
   width: 85%;
-  transform: translateY(45%);
+  height: auto;
+  transform: translateY(-10%);
+  @media (min-width: 768px) {
+    transform: translateY(45%);
+  }
 `
 
 const ButtonWrapper = styled.div`

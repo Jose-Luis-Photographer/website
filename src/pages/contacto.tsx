@@ -17,6 +17,7 @@ interface Props {
 
 const Decoration = styled(Deco)`
   width: 85%;
+  height: auto;
 `
 
 const Wrapper = styled.div`

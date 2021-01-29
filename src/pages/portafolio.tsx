@@ -28,6 +28,7 @@ const Quote = styled.div`
 
 const Letters = styled(Deco)`
   width: 85%;
+  height: auto;
   margin-bottom: 85px;
 `
 
@@ -110,7 +111,7 @@ const Portafolio: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Header initialMenuColor="dark" />
-      <Container>
+      <Container className="mb-5 mb-md-0">
         <Row>
           <Col md={6} className="ml-auto">
             <RichText
@@ -123,19 +124,29 @@ const Portafolio: React.FC<Props> = ({ data }) => {
       <Letters />
       <Container>
         <Row>
-          {portfolioItems.map(({ id, place, imgFluid, imgAlt, title }) => (
-            <Col md={6} key={id} className="mb-5 pb-5">
-              <PortfolioItem
-                portfolio={{
-                  slug: id || "",
-                  place,
-                  imgFluid,
-                  imgAlt,
-                  title,
-                }}
-              />
-            </Col>
-          ))}
+          {portfolioItems.map(
+            ({ id, place, imgFluid, imgAlt, title }, index) => (
+              <Col
+                md={6}
+                key={id}
+                className={
+                  index < portfolioItems.length - 1
+                    ? "mb-5 pb-5"
+                    : "mb-md-5 pb-md-5"
+                }
+              >
+                <PortfolioItem
+                  portfolio={{
+                    slug: id || "",
+                    place,
+                    imgFluid,
+                    imgAlt,
+                    title,
+                  }}
+                />
+              </Col>
+            )
+          )}
         </Row>
         {hasItemsLeft && (
           <div className="text-center">
