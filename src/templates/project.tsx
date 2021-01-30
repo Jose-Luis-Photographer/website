@@ -245,13 +245,15 @@ const Project: React.FC<Props> = ({ data }) => {
                 md={3}
                 className="order-1 order-md-0 text-center text-md-left"
               >
-                <GalleryBtn
-                  onClick={() => {
-                    setOpenGallery(true)
-                  }}
-                >
-                  MÁS
-                </GalleryBtn>
+                {gallery.length > 0 && (
+                  <GalleryBtn
+                    onClick={() => {
+                      setOpenGallery(true)
+                    }}
+                  >
+                    MÁS
+                  </GalleryBtn>
+                )}
               </Col>
               <Col md={6} className="order-0 order-md-1">
                 <ProjectTitle className="text-white text-center mb-4 mb-md-0">
@@ -264,8 +266,8 @@ const Project: React.FC<Props> = ({ data }) => {
       </Cover>
       <Container ref={infoSection}>
         <TimeAndPlace className="py-5 text-center">
-          <p className="mb3">{date}</p>
-          <p>{place}</p>
+          {date && <p className="mb3">{date}</p>}
+          {place && <p>{place}</p>}
         </TimeAndPlace>
       </Container>
       {slices?.map(slice => {
@@ -375,30 +377,32 @@ const Project: React.FC<Props> = ({ data }) => {
           </Container>
         </>
       )}
-      <Modal
-        show={openGallery}
-        onHide={() => {
-          setOpenGallery(false)
-        }}
-        size="xl"
-        centered
-      >
-        <Modal.Body>
-          <Slider {...sliderSettings}>
-            {gallery?.map(slide => {
-              if (slide?.imagen?.fluid) {
-                return (
-                  <Img
-                    fluid={slide.imagen.fluid}
-                    alt={slide.imagen.alt || ""}
-                  />
-                )
-              }
-              return null
-            })}
-          </Slider>
-        </Modal.Body>
-      </Modal>
+      {gallery?.length > 0 && (
+        <Modal
+          show={openGallery}
+          onHide={() => {
+            setOpenGallery(false)
+          }}
+          size="xl"
+          centered
+        >
+          <Modal.Body>
+            <Slider {...sliderSettings}>
+              {gallery?.map(slide => {
+                if (slide?.imagen?.fluid) {
+                  return (
+                    <Img
+                      fluid={slide.imagen.fluid}
+                      alt={slide.imagen.alt || ""}
+                    />
+                  )
+                }
+                return null
+              })}
+            </Slider>
+          </Modal.Body>
+        </Modal>
+      )}
     </Layout>
   )
 }
