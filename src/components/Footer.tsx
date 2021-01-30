@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     line-height: 29px;
     transition: all 0.3s ease-in-out;
     @media (min-width: 768px) {
-      font-size: 20px;
+      font-size: 18px;
     }
     &:hover {
       opacity: 0.5;
@@ -38,14 +38,13 @@ const Wrapper = styled.div`
 `
 
 const LogoIcon = styled(Icon)`
-  width: 70px;
+  width: 50px;
   height: auto;
 `
 
 const Social = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 30px;
   a {
     margin: 0 3px;
     transition: all 0.3s ease-in-out;
@@ -54,7 +53,7 @@ const Social = styled.div`
     }
   }
   svg {
-    height: 20px;
+    height: 18px;
     margin-bottom: 0;
   }
 `
@@ -102,7 +101,7 @@ const Footer: React.FC = () => {
         >
           wa: {phoneNumber}
         </a>
-        <Social>
+        <Social className="mt-3">
           <a href={igUrl} target="_blank" rel="noreferrer">
             <Instagram />
           </a>
