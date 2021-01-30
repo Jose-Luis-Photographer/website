@@ -76,7 +76,6 @@ export const query = graphql`
 const Content = styled.div`
   p {
     line-height: 26px;
-    font-weight: 400;
     &:not(:last-of-type) {
       margin-bottom: 1.5rem;
     }

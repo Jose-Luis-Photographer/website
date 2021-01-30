@@ -38,6 +38,8 @@ const Button = styled.button`
   font-family: "hv_museregular";
   font-size: 24px;
   position: relative;
+  padding: 0;
+  padding-bottom: 25px;
   &:after {
     content: "";
     display: block;
@@ -45,7 +47,7 @@ const Button = styled.button`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background: #000;
     transition: all 0.3s ease-in-out;
   }
@@ -56,7 +58,7 @@ const Button = styled.button`
 `
 
 const ModalContent = styled.div`
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   line-height: 1.5rem;
   p {
     &:not(:last-child) {
@@ -89,7 +91,7 @@ const Review: React.FC<ReviewProps> = ({
 
   return (
     <>
-      <Wrapper className="d-flex flex-column h-100">
+      <Wrapper className="d-flex flex-column h-100 text-center text-md-left">
         <RichText render={title} />
         <RichText render={shortText} />
         <div className="text-md-right mt-auto pt-5">

@@ -15,8 +15,6 @@ const Line = styled.hr`
 `
 
 const Wrapper = styled.div`
-  padding-top: 65px;
-  padding-bottom: 65px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -31,12 +29,17 @@ const Wrapper = styled.div`
     line-height: 29px;
     transition: all 0.3s ease-in-out;
     @media (min-width: 768px) {
-      font-size: 24px;
+      font-size: 20px;
     }
     &:hover {
       opacity: 0.5;
     }
   }
+`
+
+const LogoIcon = styled(Icon)`
+  width: 70px;
+  height: auto;
 `
 
 const Social = styled.div`
@@ -85,10 +88,10 @@ const Footer: React.FC = () => {
   const igUrl = contact?.instagram?.url || ""
 
   return (
-    <Container className="mt-md-5 pt-5">
+    <Container className="pt-5">
       <Line />
-      <Wrapper>
-        <Icon />
+      <Wrapper className="py-4">
+        <LogoIcon />
         <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
           {email}
         </a>

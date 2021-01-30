@@ -27,6 +27,7 @@ const StyledHeader = styled.header`
 
 const Logo = styled(Link)`
   width: 120px;
+  transition: all 0.3s ease-in-out;
   @media (min-width: 768px) {
     width: 180px;
   }
@@ -34,6 +35,9 @@ const Logo = styled(Link)`
     width: 100%;
     height: auto;
     display: block;
+  }
+  &:hover {
+    opacity: 0.5;
   }
 `
 

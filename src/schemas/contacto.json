@@ -1,61 +1,82 @@
 {
-    "Main": {
-      "title": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1",
-          "label": "Title"
-        }
-      },
-      "whatsapp": {
-        "type": "StructuredText",
-        "config": {
-          "single": "paragraph",
-          "label": "Whatsapp"
-        }
-      },
-      "correo": {
-        "type": "StructuredText",
-        "config": {
-          "single": "paragraph",
-          "label": "Correo"
-        }
-      },
-      "facebook": {
-        "type": "Link",
-        "config": {
-          "allowTargetBlank": true,
-          "label": "Facebook"
-        }
-      },
-      "instagram": {
-        "type": "Link",
-        "config": {
-          "allowTargetBlank": true,
-          "label": "Instagram"
-        }
-      },
-      "behance": {
-        "type": "Link",
-        "config": {
-          "allowTargetBlank": true,
-          "label": "Behance"
-        }
-      },
-      "mywed": {
-        "type": "Link",
-        "config": {
-          "allowTargetBlank": true,
-          "label": "MyWed"
-        }
-      },
-      "imagen": {
-        "type": "Image",
-        "config": {
-          "constraint": {},
-          "thumbnails": [],
-          "label": "Imagen"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
+      }
+    },
+    "whatsapp": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Whatsapp"
+      }
+    },
+    "correo": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Correo"
+      }
+    },
+    "facebook": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Facebook"
+      }
+    },
+    "instagram": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Instagram"
+      }
+    },
+    "imagen": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Imagen"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "link_block": []
+        },
+        "choices": {
+          "link_block": {
+            "type": "Slice",
+            "fieldset": "Link block",
+            "description": "Block of links",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "title1": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Title"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link"
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+}

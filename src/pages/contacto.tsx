@@ -80,23 +80,25 @@ export const query = graphql`
         correo {
           text
         }
-        facebook {
-          url
-        }
-        instagram {
-          url
-        }
-        behance {
-          url
-        }
-        mywed {
-          url
-        }
         imagen {
           fluid {
             ...GatsbyPrismicImageFluid
           }
           alt
+        }
+        body {
+          ... on PrismicContactoBodyLinkBlock {
+            id
+            items {
+              link {
+                url
+                target
+              }
+              title1 {
+                text
+              }
+            }
+          }
         }
       }
     }
@@ -114,6 +116,7 @@ const Contacto: React.FC<Props> = ({ data }) => {
   const mywedUrl = contact?.mywed?.url || ""
   const bannerImgFluid = contact?.imagen?.fluid
   const bannerImgAlt = contact?.imagen?.alt || ""
+  const linkBlocks = contact.body
   const menuColorChanger = useRef<null | HTMLElement>(null)
 
   useEffect(() => {
@@ -148,30 +151,33 @@ const Contacto: React.FC<Props> = ({ data }) => {
               <a href={`mailto:${email}`}>{email}</a>
             </Col>
           </Row>
-          <Row className="pb-5">
-            <Col md={4} className="ml-auto">
-              <a href={fbUrl} target="_blank" rel="noreferrer">
-                Facebook
-              </a>
-            </Col>
-            <Col md={4}>
-              <a href={igUrl} target="_blank" rel="noreferrer">
-                Instragram
-              </a>
-            </Col>
-          </Row>
-          <Row className="pb-5">
-            <Col md={4}>
-              <a href={behanceUrl} target="_blank" rel="noreferrer">
-                Behance
-              </a>
-            </Col>
-            <Col md={4} className="ml-auto">
-              <a href={mywedUrl} target="_blank" rel="noreferrer">
-                MyWed
-              </a>
-            </Col>
-          </Row>
+          {linkBlocks.map((block, index) => {
+            const rowIsEven = (index + 1) % 2 === 0
+
+            return (
+              <Row key={block.id} className="pb-5">
+                {block.items.map((item, innerIndex) => {
+                  const colIsEven = (innerIndex + 1) % 2 === 0
+
+                  return (
+                    <Col
+                      key={item.link.url}
+                      md={4}
+                      className={
+                        (rowIsEven && colIsEven) || (!rowIsEven && !colIsEven)
+                          ? "ml-auto"
+                          : ""
+                      }
+                    >
+                      <a href={item.link.url} target="_blank" rel="noreferrer">
+                        {item.title1.text}
+                      </a>
+                    </Col>
+                  )
+                })}
+              </Row>
+            )
+          })}
         </Container>
         <PortfolioBanner to="/portafolio" className="pb-5">
           <h3>Portafolio</h3>
