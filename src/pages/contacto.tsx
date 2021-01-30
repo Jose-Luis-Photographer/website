@@ -8,6 +8,7 @@ import Layout from "../components/Layout"
 import Header, { Section } from "../components/Header"
 import Deco from "../images/contacto.inline.svg"
 import { PrismicContacto } from "../../graphql-types"
+import SEO from "../components/seo"
 
 interface Props {
   data: {
@@ -133,6 +134,7 @@ const Contacto: React.FC<Props> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Contacto" />
       <Header sections={sections} />
       <Wrapper>
         <Decoration />

@@ -12,6 +12,7 @@ import {
 } from "../../graphql-types"
 import Deco from "../images/portafolio.inline.svg"
 import PortfolioItem from "../components/PortfolioItem"
+import SEO from "../components/seo"
 
 interface Props {
   data: {
@@ -110,6 +111,7 @@ const Portafolio: React.FC<Props> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Portafolio" />
       <Header initialMenuColor="dark" />
       <Container className="mb-5 mb-md-0">
         <Row>

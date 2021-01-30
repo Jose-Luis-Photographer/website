@@ -11,6 +11,7 @@ import {
   PrismicHomepageConnection,
   PrismicResenasConnection,
 } from "../../graphql-types"
+import SEO from "../components/seo"
 
 interface Props {
   data: {
@@ -106,6 +107,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Inicio" />
       <Header sections={sections} />
       {homepageData.slider && (
         <Slider slider={homepageData.slider} ref={sliderSection} />

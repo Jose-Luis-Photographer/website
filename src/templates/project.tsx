@@ -21,6 +21,7 @@ import {
 import Deco from "../images/portafolio.inline.svg"
 import ChevronRight from "../images/chevron-right.inline.svg"
 import ChevronLeft from "../images/chevron-left.inline.svg"
+import SEO from "../components/seo"
 
 interface Props {
   data: {
@@ -224,6 +225,7 @@ const Project: React.FC<Props> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={title} />
       <Header sections={sections} />
       <Cover ref={coverSection}>
         {coverFluid && (

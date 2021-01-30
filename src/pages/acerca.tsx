@@ -14,6 +14,7 @@ import {
 import Deco from "../images/about.inline.svg"
 import Pine from "../images/pine.inline.svg"
 import Review from "../components/Review"
+import SEO from "../components/seo"
 
 interface Props {
   data: {
@@ -136,6 +137,7 @@ const Acerca: React.FC<Props> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Acerca" />
       <Header initialMenuColor="dark" />
       <Decoration />
       <Container className="mt-5 mt-md-0">
