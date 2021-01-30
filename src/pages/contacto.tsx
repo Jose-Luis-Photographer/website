@@ -163,11 +163,11 @@ const Contacto: React.FC<Props> = ({ data }) => {
                     <Col
                       key={item.link.url}
                       md={4}
-                      className={
+                      className={`${
                         (rowIsEven && colIsEven) || (!rowIsEven && !colIsEven)
-                          ? "ml-auto"
+                          ? "ml-auto "
                           : ""
-                      }
+                      }mb-2 mb-md-0`}
                     >
                       <a href={item.link.url} target="_blank" rel="noreferrer">
                         {item.title1.text}
