@@ -138,7 +138,7 @@ const Contacto: React.FC<Props> = ({ data }) => {
         <Decoration />
         <Container className="mt-5 pt-5">
           <Row className="pb-5">
-            <Col md={4}>
+            <Col md={4} className="mb-2 mb-md-0">
               <a
                 href={`https://wa.me/+52${phoneNumber.trim()}`}
                 target="_blank"
@@ -147,7 +147,7 @@ const Contacto: React.FC<Props> = ({ data }) => {
                 wa: {phoneNumber}
               </a>
             </Col>
-            <Col md={4}>
+            <Col md={4} className="mb-2 mb-md-0">
               <a href={`mailto:${email}`}>{email}</a>
             </Col>
           </Row>
