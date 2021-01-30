@@ -25,11 +25,14 @@ const StyledHeader = styled.header`
   padding: 35px 15px;
 `
 
-const Logo = styled(LogoImg)`
+const Logo = styled(Link)`
   width: 120px;
-  height: auto;
   @media (min-width: 768px) {
     width: 180px;
+  }
+  svg {
+    width: 100%;
+    height: auto;
   }
 `
 
@@ -213,9 +216,9 @@ const Header: React.FC<Props> = ({
     <>
       <StyledHeader>
         <Container className="d-flex justify-content-md-center align-items-center">
-          <Link to="/" className="d-block">
-            <Logo />
-          </Link>
+          <Logo to="/">
+            <LogoImg />
+          </Logo>
           <Hamburger
             className="d-md-none"
             onClick={() => {
