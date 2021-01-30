@@ -177,7 +177,9 @@ const Project: React.FC<Props> = ({ data }) => {
   const coverFluid = portafolio?.cover_image?.fluid
   const coverAlt = portafolio?.cover_image?.alt
   const title = portafolio?.title?.text
-  const date = moment(portafolio?.fecha).format("DD MMMM YYYY")
+  const date = portafolio?.fecha
+    ? moment(portafolio?.fecha).format("DD MMMM YYYY")
+    : null
   const place = portafolio?.lugar?.text
   const gallery = portafolio?.galeria
   const slices = portafolio?.body
@@ -392,6 +394,7 @@ const Project: React.FC<Props> = ({ data }) => {
                 if (slide?.imagen?.fluid) {
                   return (
                     <Img
+                      key={slide.imagen.url}
                       fluid={slide.imagen.fluid}
                       alt={slide.imagen.alt || ""}
                     />
@@ -426,6 +429,7 @@ export const query = graphql`
         }
         galeria {
           imagen {
+            url
             alt
             fluid {
               ...GatsbyPrismicImageFluid

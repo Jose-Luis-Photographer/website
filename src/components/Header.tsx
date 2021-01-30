@@ -259,7 +259,7 @@ const Header: React.FC<Props> = ({
           <CloseSvg />
         </CloseBtn>
         <div className="my-auto">
-          <Logo />
+          <Logo to="/" />
         </div>
         <Container className="my-auto py-4">
           <Row>
