@@ -27,6 +27,7 @@ const StyledHeader = styled.header`
 
 const Logo = styled(LogoImg)`
   width: 120px;
+  height: auto;
   @media (min-width: 768px) {
     width: 180px;
   }
@@ -212,7 +213,7 @@ const Header: React.FC<Props> = ({
     <>
       <StyledHeader>
         <Container className="d-flex justify-content-md-center align-items-center">
-          <Link to="/">
+          <Link to="/" className="d-block">
             <Logo />
           </Link>
           <Hamburger
